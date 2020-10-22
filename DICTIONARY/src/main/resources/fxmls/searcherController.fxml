@@ -19,7 +19,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icon/icons8_search_32px.png" />
+                        <Image url="@../icon/icons8_search_32px_1.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -27,7 +27,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icon/icons8_add_50px.png" />
+                        <Image url="@../icon/icons8_add_50px_1.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -47,12 +47,12 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icon/icons8_speaker_32px_2.png" />
+                                          <Image url="@../icon/icons8_speaker_32px_3.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="saveButton" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#save" prefHeight="35.0" prefWidth="35.0" styleClass="definition-button">
+                              <Button fx:id="saveButton" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#save" prefHeight="35.0" prefWidth="35.0" styleClass="definition-button" visible="false">
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -61,11 +61,11 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="repairButton" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#repair" prefHeight="35.0" prefWidth="35.0" styleClass="definition-button" visible="false">
+                              <Button fx:id="repairButton" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#repair" prefHeight="35.0" prefWidth="35.0" styleClass="definition-button">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icon/icons8_settings_24px_1.png" />
+                                          <Image url="@../icon/icons8_settings_24px_2.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -74,7 +74,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icon/icons8_trash_can_30px.png" />
+                                          <Image url="@../icon/icons8_trash_26px.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>

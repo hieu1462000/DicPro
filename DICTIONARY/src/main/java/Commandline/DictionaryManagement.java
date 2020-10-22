@@ -68,13 +68,13 @@ public class DictionaryManagement {
         }
     }
 
-    public int dictionaryLookup(Dictionary dictionary, String keyWord) {
+    public Word dictionaryLookup(Dictionary dictionary, String keyWord) {
         for (int i = 0; i < dictionary.size(); i++) {
             if (dictionary.get(i).getWord_target().equals(keyWord)) {
-                return i;
+                return dictionary.get(i);
             }
         }
-        return -1;
+        return null;
     }
 
     public ObservableList<String> searcher(Dictionary dictionary, String searchKey){
@@ -88,14 +88,14 @@ public class DictionaryManagement {
         }
         return list;
     }
-//
-//    public void deleteWords(Dictionary dictionary, Word word) {
-//        for (int i = 0; i < dictionary.size(); i++) {
-//            if (dictionary.get(i).equals(word)) {
-//                dictionary.remove(dictionary.get(i));
-//            }
-//        }
-//    }
+
+    public void deleteWords(Dictionary dictionary, Word word) {
+       for (int i = 0; i < dictionary.size(); i++) {
+          if (dictionary.get(i).equals(word)) {
+               dictionary.remove(dictionary.get(i));
+           }
+        }
+    }
 
 }
 

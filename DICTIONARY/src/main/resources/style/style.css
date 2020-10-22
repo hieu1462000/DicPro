@@ -10,7 +10,7 @@
 .menu-button{
     -fx-padding: 0;
     -fx-background-color : transparent;
-    -fx-text-fill: #626C77;
+    -fx-text-fill: #66b266;
     -fx-font-size: 12px;
     -fx-background-radius: 0;
     -fx-border-radius: 0;
@@ -22,7 +22,8 @@
 }
 
 .menu-button:focused{
-    -fx-background-color: #66b266;
+    -fx-border-color: #66b266;
+    -fx-border-width: 0 0 3 0;
 }
 
 
@@ -94,7 +95,7 @@
     -fx-inset: 0;
 }
 .definition-button:hover{
-    -fx-background-color: #66b266;
+    -fx-background-color: #4C545C;
     -fx-border-width:2;
 }
 

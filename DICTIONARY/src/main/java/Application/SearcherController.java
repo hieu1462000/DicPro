@@ -3,6 +3,7 @@ package Application;
 import Commandline.Dictionary;
 import Commandline.DictionaryManagement;
 import Commandline.CustomVoice;
+import Commandline.Word;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -25,7 +26,7 @@ public class SearcherController implements Initializable {
     Dictionary dictionary = new Dictionary();
     DictionaryManagement dictionaryManagement = new DictionaryManagement();
     ObservableList<String> list = FXCollections.observableArrayList();
-    int selectedWordIndex = -1;
+    Word selectedWord = new Word();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,11 +68,11 @@ public class SearcherController implements Initializable {
     public void clickSearch() {
         list.clear();
         String searchKey = searchField.getText();
-        selectedWordIndex = dictionaryManagement.dictionaryLookup(dictionary, searchKey);
-        if (selectedWordIndex == -1) {
+        selectedWord = dictionaryManagement.dictionaryLookup(dictionary, searchKey);
+        if (selectedWord == null) {
             meaningField.setText("");
         } else {
-            meaningField.setText(dictionary.get(selectedWordIndex).getWord_explain());
+            meaningField.setText(selectedWord.getWord_explain());
         }
         list = dictionaryManagement.searcher(dictionary, searchKey);
         if (list != null) {
@@ -82,12 +83,12 @@ public class SearcherController implements Initializable {
     @FXML
     public void clickAline() {
         String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
-        selectedWordIndex = dictionaryManagement.dictionaryLookup(dictionary, selectedLine);
+        selectedWord = dictionaryManagement.dictionaryLookup(dictionary, selectedLine);
 
-        if (selectedWordIndex == -1) {
+        if (selectedWord == null) {
             meaningField.setText("");
         } else {
-            meaningField.setText(dictionary.get(selectedWordIndex).getWord_explain());
+            meaningField.setText(selectedWord.getWord_explain());
         }
     }
 
@@ -100,8 +101,8 @@ public class SearcherController implements Initializable {
 
     public void delete() throws IOException {
         String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
-        selectedWordIndex = dictionaryManagement.dictionaryLookup(dictionary, selectedLine);
-        dictionary.remove(selectedWordIndex);
+        selectedWord = dictionaryManagement.dictionaryLookup(dictionary, selectedLine);
+        dictionaryManagement.deleteWords(dictionary,selectedWord);
         dictionaryManagement.exportToFile(dictionary,"src/main/resources/text/data.txt");
         resetAfterDeleting();
         meaningField.setText("Successfully");
@@ -109,7 +110,7 @@ public class SearcherController implements Initializable {
 
     private void resetAfterDeleting() {
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(dictionary.get(selectedWordIndex).getWord_target())) {
+            if (list.get(i).equals(selectedWord.getWord_target())) {
                 list.remove(i);
                 break;
             }
@@ -122,13 +123,12 @@ public class SearcherController implements Initializable {
         meaningField.setEditable(true);
         saveButton.setVisible(true);
         repairButton.setVisible(false);
-
     }
 
     @FXML
     public void save() {
         String updateMeaning = meaningField.getText().trim();
-        dictionary.get(selectedWordIndex).setWord_explain(updateMeaning);
+        selectedWord.setWord_explain(updateMeaning);
         dictionaryManagement.exportToFile(dictionary,"src/main/resources/text/data.txt");
         // update status
         meaningField.setEditable(false);

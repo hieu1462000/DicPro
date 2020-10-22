@@ -14,31 +14,32 @@
     <children>
         <AnchorPane prefHeight="80.0" prefWidth="900.0" styleClass="header" stylesheets="@../style/style.css">
             <children>
-                <Button mnemonicParsing="false" onAction="#directSearch" prefHeight="80.0" prefWidth="450.0" styleClass="menu-button" stylesheets="@../style/style.css" text="Search">
+                <Button mnemonicParsing="false" onAction="#directSearch" prefHeight="80.0" prefWidth="450.0" styleClass="menu-button" stylesheets="@../style/style.css" text="Tra từ">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../icon/icons8_search_32px.png" />
+                                <Image url="@../icon/icons8_search_32px_1.png" />
                             </image>
                         </ImageView>
                     </graphic></Button>
-                <Button layoutX="451.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="450.0" styleClass="menu-button" stylesheets="@../style/style.css" text="Add">
+                <Button layoutX="451.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="450.0" styleClass="menu-button" stylesheets="@../style/style.css" text="Thêm từ">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../icon/icons8_add_50px.png" />
+                                <Image url="@../icon/icons8_add_50px_1.png" />
                             </image>
                         </ImageView>
                     </graphic>
                 </Button>
             </children>
         </AnchorPane>
-        <Pane layoutX="1.0" layoutY="80.0" prefHeight="522.0" prefWidth="900.0" styleClass="content-wrapper" stylesheets="@../style/style.css">
+        <Pane layoutX="-13.0" layoutY="80.0" prefHeight="522.0" prefWidth="900.0" styleClass="content-wrapper" stylesheets="@../style/style.css">
          <children>
-            <TextField fx:id="targetField" layoutX="191.0" layoutY="67.0" prefHeight="60.0" prefWidth="519.0" promptText="Nhập từ tiếng anh ... " styleClass="target-word" stylesheets="@../style/addStyle.css" />
-            <TextArea fx:id="explanationField" layoutX="192.0" layoutY="157.0" prefHeight="199.0" prefWidth="519.0" promptText="Nhập giải nghĩa ..." styleClass="explain-word" stylesheets="@../style/addStyle.css" />
-            <Label fx:id="successNotification" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="419.0" prefHeight="52.0" prefWidth="519.0" styleClass="noti-label" stylesheets="@../style/addStyle.css" text="Thành công !" textFill="#b3e8a9" />
-            <Button fx:id="addButton" layoutX="190.0" layoutY="375.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="519.0" styleClass="add-button" stylesheets="@../style/addStyle.css" text="Thêm" />
+            <TextField fx:id="targetField" alignment="TOP_LEFT" layoutX="191.0" layoutY="67.0" prefHeight="60.0" prefWidth="519.0" promptText="Nhập từ tiếng anh ... " styleClass="target-word" stylesheets="@../style/addStyle.css" />
+            <TextArea fx:id="explanationField" layoutX="192.0" layoutY="157.0" prefHeight="199.0" prefWidth="519.0" promptText="Nhập định nghĩa ..." styleClass="explain-word" stylesheets="@../style/addStyle.css" />
+            <Label fx:id="successNotification" alignment="CENTER" contentDisplay="CENTER" layoutX="192.0" layoutY="419.0" prefHeight="52.0" prefWidth="519.0" styleClass="noti-label" stylesheets="@../style/addStyle.css" text="Thành công !" textFill="#b3e8a9" />
+            <Button fx:id="addButton" layoutX="192.0" layoutY="375.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="519.0" styleClass="add-button" stylesheets="@../style/addStyle.css" text="Thêm" />
+            <Button fx:id="repeatButton" layoutX="192.0" layoutY="375.0" mnemonicParsing="false" onAction="#repeat" prefHeight="33.0" prefWidth="519.0" styleClass="add-button" stylesheets="@../style/addStyle.css" text="Nhấn đây nếu bạn muốn tiếp tục thêm !" />
          </children></Pane>
     </children>
 </AnchorPane>

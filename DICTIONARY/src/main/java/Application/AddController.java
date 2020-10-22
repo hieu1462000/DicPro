@@ -28,6 +28,8 @@ public class AddController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         successNotification.setVisible(false);
         dictionaryManagement.insertFromFile(dictionary, "src/main/resources/text/data.txt");
+        addButton.setVisible(true);
+        repeatButton.setVisible(false);
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -49,7 +51,7 @@ public class AddController implements Initializable {
                 buf.write("@"+ word.getWord_target()+ "\n" +word.getWord_explain());
                 buf.newLine();
                 buf.close();
-                successNotification.setText("Thành công");
+                successNotification.setText("Thành công !");
                 successNotification.setVisible(true);
             } catch (Exception exception) {
                 System.out.println(exception);
@@ -58,9 +60,18 @@ public class AddController implements Initializable {
             successNotification.setText("Từ điển đã có từ này");
             successNotification.setVisible(true);
         }
+        repeatButton.setVisible(true);
+        addButton.setVisible(false);
     }
 
-
+    @FXML
+    public void repeat() {
+        addButton.setVisible(true);
+        repeatButton.setVisible(false);
+        successNotification.setVisible(false);
+        targetField.setText("");
+        explanationField.setText("");
+    }
 
     @FXML
     public void directSearch() throws IOException {
@@ -68,6 +79,7 @@ public class AddController implements Initializable {
         wrapperAdd.getChildren().clear();
         wrapperAdd.getChildren().add(anchorPane);
     }
+
     @FXML
     private Button addButton;
 
@@ -81,4 +93,7 @@ public class AddController implements Initializable {
     private AnchorPane wrapperAdd;
     @FXML
     private  Label successNotification;
+
+    @FXML
+    private Button repeatButton;
 }
