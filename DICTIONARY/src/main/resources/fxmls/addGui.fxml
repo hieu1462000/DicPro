@@ -40,6 +40,16 @@
             <Label fx:id="successNotification" alignment="CENTER" contentDisplay="CENTER" layoutX="192.0" layoutY="419.0" prefHeight="52.0" prefWidth="519.0" styleClass="noti-label" stylesheets="@../style/addStyle.css" text="Thành công !" textFill="#b3e8a9" />
             <Button fx:id="addButton" layoutX="192.0" layoutY="375.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="519.0" styleClass="add-button" stylesheets="@../style/addStyle.css" text="Thêm" />
             <Button fx:id="repeatButton" layoutX="192.0" layoutY="375.0" mnemonicParsing="false" onAction="#repeat" prefHeight="33.0" prefWidth="519.0" styleClass="add-button" stylesheets="@../style/addStyle.css" text="Nhấn đây nếu bạn muốn tiếp tục thêm !" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="685.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icons8_edit_file_26px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="685.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icons8_word_24px.png" />
+               </image>
+            </ImageView>
          </children></Pane>
     </children>
 </AnchorPane>

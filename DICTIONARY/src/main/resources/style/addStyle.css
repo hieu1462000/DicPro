@@ -19,13 +19,13 @@
    -fx-padding: 5 10 5 10;
    -fx-effect: dropshadow(three-pass-box, #212429, 1, 0, 0, 1) ;
    -fx-font-size: 18px;
-   -fx-text-fill: #000;
+   -fx-text-fill: #fff;
    -fx-font-weight: bold;
 }
 
 .add-button{
     -fx-padding: 0;
-    -fx-background-color : #4e5255;
+    -fx-background-color : #2e3439;
     -fx-text-fill:  #919395;
     -fx-font-size: 12px;
     -fx-background-radius: 0;
@@ -34,10 +34,10 @@
     -fx-inset: 0;
 }
 .add-button:hover {
-        -fx-background-color: #4C545C;
+        -fx-background-color: #4e5255;
 }
 
 .add-button:focused{
     -fx-text-fill : #fff;
-    -fx-background-color: #66b266;
+    -fx-background-color: #4e5255;
 }
