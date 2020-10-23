@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -55,7 +56,7 @@ public class DictionaryManagement {
 
     public void exportToFile(Dictionary dictionary, String link){
         try{
-            FileWriter fw = new FileWriter("src/main/resources/text/data.txt");
+            FileWriter fw = new FileWriter("DICTIONARY/src/main/resources/text/data.txt");
             BufferedWriter buf = new BufferedWriter(fw);
             for (int i = 0; i < dictionary.size(); i++) {
                 Word word = dictionary.get(i);
@@ -95,6 +96,29 @@ public class DictionaryManagement {
                dictionary.remove(dictionary.get(i));
            }
         }
+    }
+    public int binarySearch(Dictionary arr , String s){
+        sort(arr);
+        int l = 0;
+        int r = arr.size()- 1;
+        while(l <= r){
+            int mid  = l + (r - l) / 2;
+            int result = arr.get(mid).getWord_target().compareTo(s);
+            if(result == 0){
+                return mid;
+            }
+            if (result <= 0 ){
+                l = mid + 1;
+            }
+            if (result > 0){
+                r = mid - 1 ;
+            }
+        }
+        return -1;
+    }
+    public void sort(Dictionary dictionary)
+    {
+        Collections.sort(dictionary,(o1, o2) -> o1.getWord_target().compareTo(o2.getWord_target()));
     }
 }
 

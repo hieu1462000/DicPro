@@ -34,6 +34,8 @@ public class SearcherController implements Initializable {
         if (searchField.getText().trim().equals("")) {
             cancelButton.setDisable(true);
         }
+        displayItem();
+
         searchField.setOnKeyTyped(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -43,17 +45,29 @@ public class SearcherController implements Initializable {
                     cancelButton.setDisable(false);
                     clickSearch();
                 }
+                if (meaningField.getText().equals("")) {
+                    speakerButton.setDisable(true);
+                    repairButton.setDisable(true);
+                    deleteButton.setDisable(true);
+                }
             }
         });
         meaningField.setEditable(false);
         saveButton.setVisible(false);
         repairButton.setVisible(true);
+        speakerButton.setDisable(true);
+        repairButton.setDisable(true);
+        deleteButton.setDisable(true);
+
 
     }
 
     public void clickCancel() {
         searchField.setText("");
         displayItem();
+        speakerButton.setDisable(true);
+        repairButton.setDisable(true);
+        deleteButton.setDisable(true);
     }
 
     public void displayItem() {
@@ -68,7 +82,7 @@ public class SearcherController implements Initializable {
     public void clickSearch() {
         list.clear();
         String searchKey = searchField.getText();
-        selectedWord = dictionaryManagement.dictionaryLookup(dictionary, searchKey);
+        selectedWord = dictionaryManagement.binarySearch(dictionary, searchKey);
         if (selectedWord == -1) {
             meaningField.setText("");
         } else {
@@ -82,35 +96,48 @@ public class SearcherController implements Initializable {
 
     @FXML
     public void clickAline() {
-        String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
-        selectedWord = dictionaryManagement.dictionaryLookup(dictionary, selectedLine);
-
-        if (selectedWord == -1) {
-            meaningField.setText("");
+        if(listSuggestion.getSelectionModel().getSelectedItem()==null) {
+            listSuggestion.isDisabled();
         } else {
-            meaningField.setText(dictionary.get(selectedWord).getWord_explain());
+        String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
+        selectedWord = dictionaryManagement.binarySearch(dictionary, selectedLine);
+
+            if (selectedWord == -1) {
+                meaningField.setText("");
+                speakerButton.setDisable(true);
+                repairButton.setDisable(true);
+                deleteButton.setDisable(true);
+            } else {
+                meaningField.setText(dictionary.get(selectedWord).getWord_explain());
+                speakerButton.setDisable(false);
+                repairButton.setDisable(false);
+                deleteButton.setDisable(false);
+                }
         }
     }
 
     @FXML
     public void clickSpeakerButton() {
+        String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
         CustomVoice voice1 = new CustomVoice("kevin16");
-        voice1.say(searchField.getText());
+        voice1.say(selectedLine);
     }
 
     public void delete() throws IOException {
         String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
-        selectedWord = dictionaryManagement.dictionaryLookup(dictionary, selectedLine);
+        selectedWord = dictionaryManagement.binarySearch(dictionary, selectedLine);
 //        dictionaryManagement.deleteWords(dictionary,selectedWord);
         resetAfterDeleting();
         dictionary.remove(selectedWord);
         dictionaryManagement.exportToFile(dictionary,"DICTIONARY/src/main/resources/text/data.txt");
         meaningField.setText("Thành công !");
+        speakerButton.setDisable(true);
+        repairButton.setDisable(true);
+        deleteButton.setDisable(true);
     }
 
     private void resetAfterDeleting() {
-        System.out.println(selectedWord);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).equals(dictionary.get(selectedWord).getWord_target())) {
                 list.remove(i);
@@ -130,7 +157,6 @@ public class SearcherController implements Initializable {
     @FXML
     public void save() {
         String updateMeaning = meaningField.getText() + "\n";
-        System.out.println(updateMeaning);
         dictionary.get(selectedWord).setWord_explain(updateMeaning);
         dictionaryManagement.exportToFile(dictionary,"DICTIONARY/src/main/resources/text/data.txt");
         // update status
@@ -159,7 +185,7 @@ public class SearcherController implements Initializable {
     private AnchorPane wrapperSearch;
 
     @FXML
-    private Button cancelButton, saveButton, repairButton;
+    private Button cancelButton, saveButton, repairButton, speakerButton, deleteButton;
 
 }
 
