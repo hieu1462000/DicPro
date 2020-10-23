@@ -9,16 +9,6 @@ import java.util.Scanner;
 
 public class DictionaryManagement {
 
-    public void insertFromCommandline(Dictionary dictionary) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Target");
-        String t = sc.nextLine();
-        System.out.println("Explain");
-        String e = sc.nextLine();
-        Word word = new Word(t, e);
-        dictionary.add(word);
-    }
-
     public void insertFromFile(Dictionary dictionary, String path) {
 
         try {
@@ -69,15 +59,6 @@ public class DictionaryManagement {
         }
     }
 
-    public int dictionaryLookup(Dictionary dictionary, String keyWord) {
-        for (int i = 0; i < dictionary.size(); i++) {
-            if (dictionary.get(i).getWord_target().equals(keyWord)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     public ObservableList<String> searcher(Dictionary dictionary, String searchKey){
         ObservableList<String> list = FXCollections.observableArrayList();
         int limit = 0;
@@ -90,13 +71,6 @@ public class DictionaryManagement {
         return list;
     }
 
-    public void deleteWords(Dictionary dictionary, Word word) {
-       for (int i = 0; i < dictionary.size(); i++) {
-          if (dictionary.get(i).equals(word)) {
-               dictionary.remove(dictionary.get(i));
-           }
-        }
-    }
     public int binarySearch(Dictionary arr , String s){
         sort(arr);
         int l = 0;

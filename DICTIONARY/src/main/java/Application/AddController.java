@@ -90,6 +90,7 @@ public class AddController implements Initializable {
 
     @FXML
     private AnchorPane wrapperAdd;
+
     @FXML
     private  Label successNotification;
 

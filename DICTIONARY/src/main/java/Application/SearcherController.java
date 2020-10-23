@@ -127,7 +127,6 @@ public class SearcherController implements Initializable {
     public void delete() throws IOException {
         String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
         selectedWord = dictionaryManagement.binarySearch(dictionary, selectedLine);
-//        dictionaryManagement.deleteWords(dictionary,selectedWord);
         resetAfterDeleting();
         dictionary.remove(selectedWord);
         dictionaryManagement.exportToFile(dictionary,"DICTIONARY/src/main/resources/text/data.txt");
@@ -159,7 +158,6 @@ public class SearcherController implements Initializable {
         String updateMeaning = meaningField.getText() + "\n";
         dictionary.get(selectedWord).setWord_explain(updateMeaning);
         dictionaryManagement.exportToFile(dictionary,"DICTIONARY/src/main/resources/text/data.txt");
-        // update status
         meaningField.setEditable(false);
         saveButton.setVisible(false);
         repairButton.setVisible(true);
