@@ -27,7 +27,7 @@ public class AddController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         successNotification.setVisible(false);
-        dictionaryManagement.insertFromFile(dictionary, "src/main/resources/text/data.txt");
+        dictionaryManagement.insertFromFile(dictionary, "DICTIONARY/src/main/resources/text/data.txt");
         addButton.setVisible(true);
         repeatButton.setVisible(false);
         addButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -45,7 +45,7 @@ public class AddController implements Initializable {
         if(!dictionary.contains(word)){
             dictionary.add(word);
             try {
-                FileWriter fileWriter = new FileWriter("src/main/resources/text/data.txt",true);
+                FileWriter fileWriter = new FileWriter("DICTIONARY/src/main/resources/text/data.txt",true);
                 BufferedWriter buf = new BufferedWriter(fileWriter);
                 buf.write("@"+ word.getWord_target()+ "\n" +word.getWord_explain());
                 buf.newLine();

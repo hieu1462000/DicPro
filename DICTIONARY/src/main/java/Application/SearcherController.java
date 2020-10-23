@@ -30,7 +30,7 @@ public class SearcherController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dictionaryManagement.insertFromFile(dictionary, "src/main/resources/text/data.txt");
+        dictionaryManagement.insertFromFile(dictionary, "DICTIONARY/src/main/resources/text/data.txt");
         if (searchField.getText().trim().equals("")) {
             cancelButton.setDisable(true);
         }
@@ -105,8 +105,8 @@ public class SearcherController implements Initializable {
 //        dictionaryManagement.deleteWords(dictionary,selectedWord);
         resetAfterDeleting();
         dictionary.remove(selectedWord);
-        dictionaryManagement.exportToFile(dictionary,"src/main/resources/text/data.txt");
-        meaningField.setText("Successfully");
+        dictionaryManagement.exportToFile(dictionary,"DICTIONARY/src/main/resources/text/data.txt");
+        meaningField.setText("Thành công !");
     }
 
     private void resetAfterDeleting() {
@@ -132,7 +132,7 @@ public class SearcherController implements Initializable {
         String updateMeaning = meaningField.getText() + "\n";
         System.out.println(updateMeaning);
         dictionary.get(selectedWord).setWord_explain(updateMeaning);
-        dictionaryManagement.exportToFile(dictionary,"src/main/resources/text/data.txt");
+        dictionaryManagement.exportToFile(dictionary,"DICTIONARY/src/main/resources/text/data.txt");
         // update status
         meaningField.setEditable(false);
         saveButton.setVisible(false);
