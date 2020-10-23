@@ -18,7 +18,7 @@
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../icon/icons8_search_32px_1.png" />
+                                <Image url="@../icons/icons8_search_32px_1.png" />
                             </image>
                         </ImageView>
                     </graphic></Button>
@@ -26,7 +26,7 @@
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../icon/icons8_add_50px_1.png" />
+                                <Image url="@../icons/icons8_add_50px_1.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -42,12 +42,12 @@
             <Button fx:id="repeatButton" layoutX="192.0" layoutY="375.0" mnemonicParsing="false" onAction="#repeat" prefHeight="33.0" prefWidth="519.0" styleClass="add-button" stylesheets="@../style/addStyle.css" text="Nhấn đây nếu bạn muốn tiếp tục thêm !" />
             <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="685.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icon/icons8_edit_file_26px.png" />
+                  <Image url="@../icons/icons8_edit_file_26px.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="685.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icon/icons8_word_24px.png" />
+                  <Image url="@../icons/icons8_word_24px.png" />
                </image>
             </ImageView>
          </children></Pane>

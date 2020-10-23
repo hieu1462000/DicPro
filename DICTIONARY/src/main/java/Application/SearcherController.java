@@ -130,7 +130,7 @@ public class SearcherController implements Initializable {
         resetAfterDeleting();
         dictionary.remove(selectedWord);
         dictionaryManagement.exportToFile(dictionary,"DICTIONARY/src/main/resources/text/data.txt");
-        meaningField.setText("Thành công !");
+        meaningField.setText("Xóa thành công !");
         speakerButton.setDisable(true);
         repairButton.setDisable(true);
         deleteButton.setDisable(true);
