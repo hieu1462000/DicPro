@@ -43,6 +43,7 @@
     -fx-text-fill: #d2d0d2;
     -fx-padding: 2;
     -fx-background-color: transparent;
+    -fx-prompt-text-fill: #aaaaaa;
 }
 .cancel-button{
     -fx-padding: 0;
@@ -101,5 +102,4 @@
 
 .menu-bar{
 -fx-background-color: #2e3439 ;
-
 }

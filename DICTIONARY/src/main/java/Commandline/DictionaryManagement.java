@@ -68,13 +68,13 @@ public class DictionaryManagement {
         }
     }
 
-    public Word dictionaryLookup(Dictionary dictionary, String keyWord) {
+    public int dictionaryLookup(Dictionary dictionary, String keyWord) {
         for (int i = 0; i < dictionary.size(); i++) {
             if (dictionary.get(i).getWord_target().equals(keyWord)) {
-                return dictionary.get(i);
+                return i;
             }
         }
-        return null;
+        return -1;
     }
 
     public ObservableList<String> searcher(Dictionary dictionary, String searchKey){
@@ -96,6 +96,5 @@ public class DictionaryManagement {
            }
         }
     }
-
 }
 

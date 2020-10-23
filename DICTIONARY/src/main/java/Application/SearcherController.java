@@ -26,7 +26,7 @@ public class SearcherController implements Initializable {
     Dictionary dictionary = new Dictionary();
     DictionaryManagement dictionaryManagement = new DictionaryManagement();
     ObservableList<String> list = FXCollections.observableArrayList();
-    Word selectedWord = new Word();
+    int selectedWord = -1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -69,10 +69,10 @@ public class SearcherController implements Initializable {
         list.clear();
         String searchKey = searchField.getText();
         selectedWord = dictionaryManagement.dictionaryLookup(dictionary, searchKey);
-        if (selectedWord == null) {
+        if (selectedWord == -1) {
             meaningField.setText("");
         } else {
-            meaningField.setText(selectedWord.getWord_explain());
+            meaningField.setText(dictionary.get(selectedWord).getWord_explain());
         }
         list = dictionaryManagement.searcher(dictionary, searchKey);
         if (list != null) {
@@ -85,10 +85,10 @@ public class SearcherController implements Initializable {
         String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
         selectedWord = dictionaryManagement.dictionaryLookup(dictionary, selectedLine);
 
-        if (selectedWord == null) {
+        if (selectedWord == -1) {
             meaningField.setText("");
         } else {
-            meaningField.setText(selectedWord.getWord_explain());
+            meaningField.setText(dictionary.get(selectedWord).getWord_explain());
         }
     }
 
@@ -102,15 +102,17 @@ public class SearcherController implements Initializable {
     public void delete() throws IOException {
         String selectedLine = listSuggestion.getSelectionModel().getSelectedItem();
         selectedWord = dictionaryManagement.dictionaryLookup(dictionary, selectedLine);
-        dictionaryManagement.deleteWords(dictionary,selectedWord);
-        dictionaryManagement.exportToFile(dictionary,"src/main/resources/text/data.txt");
+//        dictionaryManagement.deleteWords(dictionary,selectedWord);
         resetAfterDeleting();
+        dictionary.remove(selectedWord);
+        dictionaryManagement.exportToFile(dictionary,"src/main/resources/text/data.txt");
         meaningField.setText("Successfully");
     }
 
     private void resetAfterDeleting() {
+        System.out.println(selectedWord);
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(selectedWord.getWord_target())) {
+            if (list.get(i).equals(dictionary.get(selectedWord).getWord_target())) {
                 list.remove(i);
                 break;
             }
@@ -127,8 +129,9 @@ public class SearcherController implements Initializable {
 
     @FXML
     public void save() {
-        String updateMeaning = meaningField.getText().trim();
-        selectedWord.setWord_explain(updateMeaning);
+        String updateMeaning = meaningField.getText() + "\n";
+        System.out.println(updateMeaning);
+        dictionary.get(selectedWord).setWord_explain(updateMeaning);
         dictionaryManagement.exportToFile(dictionary,"src/main/resources/text/data.txt");
         // update status
         meaningField.setEditable(false);

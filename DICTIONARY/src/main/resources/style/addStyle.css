@@ -1,17 +1,20 @@
 .target-word{
     -fx-background-color: #2e3439;
-       -fx-border-color :#2e3439;
-       -fx-control-inner-background: #2e3439;
-       -fx-font-size: 18px;
-       -fx-text-fill: #d2d0d2;
+   -fx-border-color :#2e3439;
+   -fx-control-inner-background: #2e3439;
+   -fx-font-size: 18px;
+   -fx-text-fill: #d2d0d2;
+   -fx-prompt-text-fill: #aaaaaa;
 }
 
 .explain-word{
-            -fx-background-color: #2e3439;
-           -fx-border-color :#2e3439;
-           -fx-control-inner-background: #2e3439;
-           -fx-font-size: 18px;
-           -fx-text-fill: #d2d0d2;
+    -fx-background-color: #2e3439;
+    -fx-border-color :#2e3439;
+    -fx-control-inner-background: #2e3439;
+    -fx-font-size: 18px;
+    -fx-text-fill: #d2d0d2;
+    -fx-prompt-text-fill: #aaaaaa;
+
 }
 
 .noti-label{

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,7 +41,10 @@
                <children>
                   <Pane layoutX="14.0" layoutY="80.0" prefHeight="429.0" prefWidth="554.0" styleClass="definition-box" stylesheets="@../style/style.css">
                      <children>
-                        <TextArea fx:id="meaningField" prefHeight="429.0" prefWidth="500.0" styleClass="definition-term" stylesheets="@../style/style.css" wrapText="true" />
+                        <TextArea fx:id="meaningField" prefHeight="429.0" prefWidth="500.0" styleClass="definition-term" stylesheets="@../style/style.css" text="Định nghĩa&#10;" wrapText="true">
+                           <tooltip>
+                              <Tooltip text="Định nghĩa" />
+                           </tooltip></TextArea>
                         <Pane layoutX="500.0" layoutY="7.0" prefHeight="148.0" prefWidth="52.0" styleClass="menu-bar" stylesheets="@../style/style.css">
                            <children>
                               <Button fx:id="speakerButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickSpeakerButton" prefHeight="35.0" prefWidth="35.0" styleClass="definition-button">
@@ -51,6 +55,9 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Phát âm" />
+                                 </tooltip>
                               </Button>
                               <Button fx:id="saveButton" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#save" prefHeight="35.0" prefWidth="35.0" styleClass="definition-button" visible="false">
                                  <graphic>
@@ -60,6 +67,9 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Lưu chỉnh sửa" />
+                                 </tooltip>
                               </Button>
                               <Button fx:id="repairButton" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#repair" prefHeight="35.0" prefWidth="35.0" styleClass="definition-button">
                                  <graphic>
@@ -69,6 +79,9 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Chỉnh sửa" />
+                                 </tooltip>
                               </Button>
                               <Button fx:id="deleteButton" layoutX="10.0" layoutY="110.0" mnemonicParsing="false" onAction="#delete" prefHeight="35.0" prefWidth="35.0" styleClass="definition-button" stylesheets="@../style/style.css">
                                  <graphic>
@@ -78,6 +91,9 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Xóa " />
+                                 </tooltip>
                               </Button>
                            </children>
                         </Pane>

@@ -47,7 +47,6 @@ public class AddController implements Initializable {
             try {
                 FileWriter fileWriter = new FileWriter("src/main/resources/text/data.txt",true);
                 BufferedWriter buf = new BufferedWriter(fileWriter);
-                buf.newLine();
                 buf.write("@"+ word.getWord_target()+ "\n" +word.getWord_explain());
                 buf.newLine();
                 buf.close();
